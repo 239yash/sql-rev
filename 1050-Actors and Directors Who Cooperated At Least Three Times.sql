@@ -10,6 +10,8 @@ HAVING COUNT(*) >= 3;
 
 
 
+
+
 Table: ActorDirector
 +-------------+---------+
 | Column Name | Type    |
