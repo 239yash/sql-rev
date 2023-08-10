@@ -10,6 +10,27 @@ GROUP BY e1.employee_id;
 
 
 
+-- SELECT 
+--        e.employee_id,
+--        e.name,
+--        r.reports_count,
+--        ROUND(r.avg_age) AS average_age
+-- FROM Employees AS e
+-- JOIN (
+--     SELECT 
+--            reports_to,
+--            COUNT(*) AS reports_count,
+--            AVG(age) AS avg_age 
+--     FROM Employees
+--     WHERE reports_to IS NOT NULL
+--     GROUP BY reports_to
+-- ) r
+-- ON r.reports_to = e.employee_id
+-- ORDER BY e.employee_id;
+
+
+
+
 
 
 
