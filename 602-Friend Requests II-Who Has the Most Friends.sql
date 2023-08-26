@@ -1,11 +1,15 @@
-SELECT requester_id AS id,
-(SELECT COUNT(*) 
- FROM RequestAccepted
- WHERE id = requester_id 
- OR id = accepter_id)
-AS num
-FROM RequestAccepted
-ORDER BY num DESC LIMIT 1;
+# Write your MySQL query statement below
+SELECT id, SUM(tot) AS num FROM(
+    SELECT requester_id AS id,COUNT(DISTINCT accepter_id) AS tot FROM RequestAccepted r1
+    GROUP BY id
+    UNION ALL
+    SELECT accepter_id AS id, count(DISTINCT requester_id) AS tot FROM RequestAccepted r2
+    GROUP BY id
+    ) derived
+GROUP BY id
+ORDER BY num DESC
+LIMIT 1;
+
 
 
 
